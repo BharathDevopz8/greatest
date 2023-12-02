@@ -21,7 +21,9 @@ spec:
         ingress_annotations: |
           alb.ingress.kubernetes.io/scheme: "internet-facing"
           alb.ingress.kubernetes.io/target-type: "ip"
-          alb.ingress.kubernetes.io/actions.ssl-redirect: '{"Type": "redirect", "RedirectConfig": { "Protocol": "HTTPS", "Port": "443", "StatusCode": "HTTP_301"}}
+          alb.ingress.kubernetes.io/group.name: my-alb-group
+          alb.ingress.kubernetes.io/load-balancer-name: my-alb
+          alb.ingress.kubernetes.io/actions.ssl-redirect: '443'
           alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-south-1:155386405988:certificate/866611b1-ef9c-4767-ba7b-2cfb2f8bd7d1
           alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
       postgres:
